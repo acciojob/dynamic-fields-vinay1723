@@ -1,6 +1,5 @@
-import React from "react";
-import "./../styles/App.css";
-import { useState } from "react";
+import React, { useState } from "react";
+ import "./../styles/App.css";
 
 const App = () => {
   const [fields, setFields] = useState([{ name: "", age: "" }]);
@@ -8,21 +7,25 @@ const App = () => {
   function addField() {
     setFields((fields) => [...fields, { name: "", age: "" }]);
   }
+
   function removeField(index, e) {
     e.stopPropagation();
     const values = [...fields];
     values.splice(index, 1);
     setFields(values);
   }
+
   function handleSubmit(e) {
     e.preventDefault();
     console.log(fields);
   }
+
   function handleChange(e, index) {
     const values = [...fields];
     values[index][e.target.name] = e.target.value;
     setFields(values);
   }
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -37,8 +40,8 @@ const App = () => {
             />
             <input
               type="number"
-              placeholder="age"
-              name="Age"
+              placeholder="Age"
+              name="age"
               value={field.age}
               onChange={(e) => handleChange(e, index)}
             />
