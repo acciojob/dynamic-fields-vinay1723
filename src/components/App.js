@@ -1,7 +1,6 @@
-
 import React from "react";
-import './../styles/App.css';
-import {useState} from "react";
+import "./../styles/App.css";
+import { useState } from "react";
 
 const App = () => {
   const [fields, setFields] = useState([{ name: "", age: "" }]);
@@ -39,20 +38,21 @@ const App = () => {
             <input
               type="number"
               placeholder="age"
-              name="age"
+              name="Age"
               value={field.age}
               onChange={(e) => handleChange(e, index)}
             />
             <button type="button" onClick={(e) => removeField(index, e)}>
-              remove
+              Remove
             </button>
           </div>
         ))}
         <button type="submit">Submit</button>
       </form>
-      <button onClick={addField}>...Add more</button>
+      <button onClick={addField}>Add More...</button>
+      <p>After clicking submit check console for data</p>
     </div>
   );
-}
+};
 
-export default App
+export default App;
